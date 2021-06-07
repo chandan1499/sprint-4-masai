@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Zone</title>
+
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .nav-bar {
+            background-color: black;
+            display: flex;
+            flex-direction: row-reverse;
+            height: 60px;
+            align-items: center;
+            position: sticky;
+        }
+
+        li {
+            list-style: none;
+            font-size: 20px;
+        }
+
+        li a {
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        li a:hover {
+            color: yellow;
+        }
+
+        #home-Logo {
+            padding-right: 67vw;
+            font-size: 25px;
+            font-family: 'Circular-Loom';
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav-bar">
+            <li><a href="#login">Log in</a></li>
+            <li><a href="#signup">Sign up</a></li>
+            <li><a href="#menu">Menu Options</a></li>
+            <li><a href="#home" id="home-Logo"><i>Food Zone</i></a></li>
+        </div>
+    </div>
+</body>
+</html>

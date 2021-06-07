@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Zone / login</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: white;
+        }
+
+        
+        .nav-bar {
+            background-color: black;
+            display: flex;
+            flex-direction: row-reverse;
+            height: 60px;
+            align-items: center;
+            position: sticky;
+        }
+
+        li {
+            list-style: none;
+            font-size: 20px;
+        }
+
+        li a {
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        li a:hover {
+            color: yellow;
+        }
+
+        #home-Logo {
+            padding-right: 66vw;
+            font-size: 25px;
+            font-family: 'Circular-Loom';
+            color: yellow;
+        }
+
+        #red {
+            color: red;
+        }
+
+        .form {
+            width: 20%;
+            margin: 30vh auto;
+            text-align: center;
+        }
+
+        input {
+            padding: 10px 20px 10px 10px;
+            font-size: 18px;
+            font-weight: 600;
+            border: 2px solid black;
+            border-radius: 5px;
+        }
+
+        #submit {
+            padding: 10px 30px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav-bar">
+            <li><a href="#login" id="red">Log in</a></li>
+            <li><a href="#signup">Sign up</a></li>
+            <li><a href="#menu">Menu Options</a></li>
+            <li><a href="#home" id="home-Logo"><i>Food Zone</i></a></li>
+        </div>
+        <form class="form">
+            <input type="email" id="email" placeholder="Email"><br><br>
+            <input type="password" id="password" placeholder="Password"><br><br>
+            <input type="submit" id="submit" onclick="verifyUser(event)">
+        </form>
+    </div>
+</body>
+<script>
+    function verifyUser(e) {
+        e.preventDefault();
+        console.log("hello");
+
+        let form = document.querySelector('.form');
+
+        let email = form.email.value;
+        let password = form.password.value;
+        if(email == ""){
+            alert("Please enter Valid Email!");
+            return;
+        }
+        if(password == ""){
+            alert("Please enter Valid Password!");
+            return;
+        }
+
+
+        let data = JSON.parse(localStorage.getItem("foodZoneUsers"));
+        if(data == null) {
+            alert("Invalid Credentials!");
+        }
+
+        for(let i=0; i<data.length; i++) {
+            if((data[i].email == email) && (data[i].password == password)) {
+                window.location.href = "menu.html";
+                return;
+            }
+        }
+
+        alert("Invalid Credentials!");
+    }
+</script>
+</html>
